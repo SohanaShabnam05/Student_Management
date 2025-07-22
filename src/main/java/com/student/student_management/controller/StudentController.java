@@ -28,6 +28,7 @@ public class StudentController {
     @PostMapping("/saveStudent")
     public Student saveStudent(@RequestBody Student student)
     {
+        System.out.println("Saving student: " + student);
         return studentService.saveStudent(student);
     }
 
@@ -39,10 +40,12 @@ public class StudentController {
 
     //Get Student By id
     @GetMapping("/getStudent/{id}")
-     public Student getStudentById(@PathVariable("id") Integer id)
+     public String getStudentById(@PathVariable("id") Integer id)
     {
-        return studentService.getStudentById(id);
+        //System.out.println(studentService.getStudentById(id).toString());
+        return studentService.getStudentById(id).toString();
     }
+
 
 
     //Update Student
